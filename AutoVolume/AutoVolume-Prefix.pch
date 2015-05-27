@@ -1,0 +1,33 @@
+//
+//  AutoVolume-Prefix.pch
+//  AutoVolume
+//
+//  Created by Derek Chen on 12/1/14.
+//  Copyright (c) 2014 Derek Chen. All rights reserved.
+//
+
+#ifndef AutoVolume_AutoVolume_Prefix_pch
+#define AutoVolume_AutoVolume_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef DEBUG
+#  define LOG(fmt, ...) do {                                            \
+NSString* file = [[NSString alloc] initWithFormat:@"%s", __FILE__]; \
+NSLog((@"%@(%d) " fmt), [file lastPathComponent], __LINE__, ##__VA_ARGS__); \
+[file release];                                                 \
+} while(0)
+#  define LOG_METHOD NSLog(@"%s", __func__)
+#  define LOG_CMETHOD NSLog(@"%@/%@", NSStringFromClass([self class]), NSStringFromSelector(_cmd))
+#  define COUNT(p) NSLog(@"%s(%d): count = %d\n", __func__, __LINE__, [p retainCount]);
+#  define LOG_TRACE(x) do {printf x; putchar('\n'); fflush(stdout);} while (0)
+#else
+#  define LOG(...)
+#  define LOG_METHOD
+#  define LOG_CMETHOD
+#  define COUNT(p)
+#  define LOG_TRACE(x)
+#endif
+
+#endif

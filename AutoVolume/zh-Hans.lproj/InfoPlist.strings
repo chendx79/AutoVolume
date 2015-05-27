@@ -1,0 +1,10 @@
+/* 
+  Localization.strings
+  AutoVolume
+
+  Created by Derek Chen on 12/3/14.
+  Copyright (c) 2014 Derek Chen. All rights reserved.
+*/
+{
+    CFBundleDisplayName = "音量管家";
+}
