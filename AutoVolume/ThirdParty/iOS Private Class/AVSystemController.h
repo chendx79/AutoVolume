@@ -38,4 +38,4 @@ struct AVSystemControllerPrivate;
 
 @end
 
-#define SharedAVSystemController ((AVSystemController *)[objc_getClass("AVSystemController") sharedAVSystemController])
+#define SharedAVSystemController ((AVSystemController *)[NSClassFromString(@"AVSystemController") sharedAVSystemController])
